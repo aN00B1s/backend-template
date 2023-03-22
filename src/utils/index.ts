@@ -3,7 +3,7 @@ import pg, { type PoolClient } from 'pg'
 import pgTx from '@onmoon/pg-tx'
 
 export const db = new pg.Pool({
-	connectionString: process.env.PGURI,
+	connectionString: process.env.POSTGRES_URL,
 	max: 50,
 	allowExitOnIdle: true,
 })
