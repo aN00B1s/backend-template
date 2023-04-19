@@ -13,7 +13,7 @@ FROM base AS runner
 WORKDIR /app
 COPY . .
 RUN apk add --no-cache tini
-RUN npm ci --omit=dev --legacy-peer-deps
+RUN npm ci --omit=dev
 COPY --from=checker /usr/src/app/package.json ./package.json
 
 USER node
