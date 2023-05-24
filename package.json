@@ -8,7 +8,7 @@
 	"license": "ISC",
 	"scripts": {
 		"watch": "env-cmd tsc-watch --onSuccess \"tsx ./src/app.ts\"",
-		"start": "env-cmd tsx watch --clear-screen=false ./src/app.ts",
+		"start": "env-cmd nodemon -d 0.5 -w .env -w src -x 'tsx' src/app.ts",
 		"start:dev": "env-cmd tsx ./src/app.ts",
 		"start:prod": "tsx ./src/app.ts",
 		"typecheck": "tsc --strict -t esnext --noEmit",
@@ -38,6 +38,7 @@
 		"env-cmd": "^10.1.0",
 		"jest": "^29.5.0",
 		"lint-staged": "^13.2.2",
+		"nodemon": "^2.0.22",
 		"tsc-watch": "^6.0.4",
 		"typescript": "^5.0.4",
 		"xo": "^0.54.2"
