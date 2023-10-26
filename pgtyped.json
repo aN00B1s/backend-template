@@ -7,6 +7,5 @@
 		}
 	],
 	"srcDir": "./src/",
-	"failOnError": false,
-	"camelCaseColumnNames": false
+	"failOnError": true
 }

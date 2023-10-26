@@ -2,12 +2,12 @@ import process from 'node:process'
 import pg, { type PoolClient } from 'pg'
 import pgTx from '@onmoon/pg-tx'
 
-if (!process.env.POSTGRES_URL) {
-	throw new Error('POSTGRES_URL env is not set')
+if (!process.env.PGURI) {
+	throw new Error('PGURI env is not set')
 }
 
 export const db = new pg.Pool({
-	connectionString: process.env.POSTGRES_URL,
+	connectionString: process.env.PGURI,
 	max: 50,
 	allowExitOnIdle: true,
 })

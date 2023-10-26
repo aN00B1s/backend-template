@@ -1,47 +1,51 @@
 {
-	"name": "template",
+	"name": "backend",
 	"version": "1.0.0",
 	"description": "",
-	"main": ".build/app.js",
+	"main": "app.js",
 	"type": "module",
-	"author": "",
+	"author": "aN00B1s",
 	"license": "ISC",
 	"scripts": {
-		"watch": "env-cmd tsc-watch --onSuccess \"tsx ./src/app.ts\"",
-		"start": "env-cmd nodemon -d 0.5 -w .env -w src -x 'tsx' src/app.ts",
-		"start:dev": "env-cmd tsx ./src/app.ts",
-		"start:prod": "tsx ./src/app.ts",
-		"typecheck": "tsc --strict -t esnext --noEmit",
-		"typegen:pg": "env-cmd pgtyped -c pgtyped.json --watch",
+		"start": "nodemon -d 0.5 -w .env -w src -x 'node' --env-file=.env --import tsx/esm src/app.ts",
+		"start:prod": "node --import tsx/esm src/app.ts",
+		"start:prod:js": "node .build/app.js",
+		"build": "tsc && tsc-alias && cp package*.json .build",
+		"typecheck": "tsc --noEmit",
+		"typegen:pg": "env-cmd pgtyped -w -c pgtyped.json",
 		"lint": "xo",
 		"lint:fix": "xo --fix",
-		"update": "npx npm-check-updates",
-		"update:force": "npx npm-check-updates -u"
-	},
-	"lint-staged": {
-		"*.ts": "xo"
+		"update": "npm-check-updates",
+		"update:force": "npm-check-updates -u"
 	},
 	"dependencies": {
 		"@onmoon/pg-tx": "^1.0.8",
-		"@pgtyped/query": "^2.2.0",
-		"pg": "^8.11.1",
-		"pino": "^8.14.1",
-		"pino-pretty": "^10.2.0",
-		"tsx": "^3.12.7"
+		"@pgtyped/query": "^2.3.0",
+		"pg": "^8.11.3",
+		"pino": "^8.16.1",
+		"pino-pretty": "^10.2.3",
+		"tsx": "^3.14.0"
 	},
 	"devDependencies": {
 		"@onmoon/eslint-config": "^1.0.12",
-		"@pgtyped/cli": "^2.2.1",
-		"@pgtyped/runtime": "^2.1.0",
-		"@total-typescript/ts-reset": "^0.4.2",
-		"@types/pg": "^8.10.2",
+		"@pgtyped/cli": "^2.3.0",
+		"@pgtyped/runtime": "^2.3.0",
+		"@total-typescript/ts-reset": "^0.5.1",
+		"@types/pg": "^8.10.7",
 		"env-cmd": "^10.1.0",
-		"jest": "^29.6.1",
-		"lint-staged": "^13.2.3",
+		"jest": "^29.7.0",
+		"lint-staged": "^15.0.2",
 		"nodemon": "^3.0.1",
-		"tsc-watch": "^6.0.4",
-		"typescript": "^5.1.6",
-		"xo": "^0.55.0"
+		"npm-check-updates": "^16.14.6",
+		"tsc-alias": "^1.8.8",
+		"typescript": "^5.2.2",
+		"xo": "^0.56.0"
+	},
+	"imports": {
+		"#src/*": "./*"
+	},
+	"lint-staged": {
+		"*.ts": "xo"
 	},
 	"xo": {
 		"extends": "@onmoon",

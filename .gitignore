@@ -7,3 +7,4 @@ scripts
 .vscode
 .todo
 *.pem
+deploy*.sh
