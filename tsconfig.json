@@ -4,7 +4,7 @@
 		"esModuleInterop": true,
 		"preserveSymlinks": true,
 		"module": "ESNext",
-		"moduleResolution": "node",
+		"moduleResolution": "Bundler",
 		"target": "ESNext",
 		"lib": ["ESNext"],
 		"incremental": true,
