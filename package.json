@@ -1,10 +1,10 @@
 {
-	"name": "backend",
+	"name": "",
 	"version": "1.0.0",
 	"description": "",
 	"main": "app.js",
 	"type": "module",
-	"author": "aN00B1s",
+	"author": "",
 	"license": "ISC",
 	"scripts": {
 		"start": "nodemon -d 0.5 -w .env -w src -x 'node' --env-file=.env --import tsx/esm src/app.ts",
@@ -65,7 +65,7 @@
 		}
 	},
 	"prettier": {
-		"prettier.printWidth": 120,
+		"printWidth": 100,
 		"useTabs": true,
 		"singleQuote": true,
 		"semi": false,
