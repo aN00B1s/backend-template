@@ -7,7 +7,7 @@
 	"author": "",
 	"license": "ISC",
 	"scripts": {
-		"start": "nodemon -d 0.5 -w .env -w src -x 'node' --env-file=.env --import tsx/esm src/app.ts",
+		"start": "nodemon -d 0.5 -w .env -w src -x node --env-file=.env --import tsx/esm src/app.ts",
 		"start:prod": "node --import tsx/esm src/app.ts",
 		"start:prod:js": "node .build/app.js",
 		"build": "tsc && tsc-alias && cp package*.json .build",
