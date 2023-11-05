@@ -16,6 +16,7 @@
 		"isolatedModules": true,
 		"outDir": ".build",
 		"baseUrl": "src",
+		"sourceMap": true,
 		"paths": {
 			"#src/*": ["*"]
 		}

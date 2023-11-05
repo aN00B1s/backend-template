@@ -18,15 +18,11 @@ export async function sleep(ms: number) {
 	})
 }
 
-export async function tx<T>(
-	callback: (db: PoolClient) => Promise<T>,
-): Promise<T> {
+export async function tx<T>(callback: (db: PoolClient) => Promise<T>): Promise<T> {
 	return pgTx(db, callback)
 }
 
-export function isFulfilled<T>(
-	value: PromiseSettledResult<T>,
-): value is PromiseFulfilledResult<T> {
+export function isFulfilled<T>(value: PromiseSettledResult<T>): value is PromiseFulfilledResult<T> {
 	return value.status === 'fulfilled'
 }
 
