@@ -1,4 +1,4 @@
-import 'source-map-support/register'
+import 'source-map-support/register.js'
 import * as queries from '#src/app.queries'
 import logger from '#src/utils/log'
 import { db } from '#src/utils/core'
