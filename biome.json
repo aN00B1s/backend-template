@@ -1,0 +1,30 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"all": true,
+			"style": {
+				"noNonNullAssertion": "off"
+			},
+			"nursery": {
+				"noNodejsModules": "off"
+			},
+			"complexity": {
+				"noVoid": "off"
+			}
+		}
+	},
+	"files": {
+		"ignore": ["*.queries.ts"]
+	},
+	"javascript": {
+		"formatter": {
+			"semicolons": "asNeeded",
+			"quoteStyle": "single"
+		}
+	}
+}

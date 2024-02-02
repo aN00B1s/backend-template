@@ -1,6 +1,6 @@
 import process from 'node:process'
-import pg, { type PoolClient } from 'pg'
 import pgTx from '@onmoon/pg-tx'
+import pg, { type PoolClient } from 'pg'
 
 if (!process.env.PGURI) {
 	throw new Error('PGURI env is not set')
@@ -18,11 +18,15 @@ export async function sleep(ms: number) {
 	})
 }
 
-export async function tx<T>(callback: (db: PoolClient) => Promise<T>): Promise<T> {
+export async function tx<T>(
+	callback: (db: PoolClient) => Promise<T>,
+): Promise<T> {
 	return pgTx(db, callback)
 }
 
-export function isFulfilled<T>(value: PromiseSettledResult<T>): value is PromiseFulfilledResult<T> {
+export function isFulfilled<T>(
+	value: PromiseSettledResult<T>,
+): value is PromiseFulfilledResult<T> {
 	return value.status === 'fulfilled'
 }
 
